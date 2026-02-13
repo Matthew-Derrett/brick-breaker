@@ -1,23 +1,12 @@
-#include <cstdlib>
-#include <iostream>
-
-#include <raylib.h>
+#include "Game.h"
 
 int main(int argC, char* argV[])
 {
-	InitWindow(1080, 720, "Brick Breaker");
+	Game* game = new Game{ 1080, 720, "Brick Breaker", BLACK };
 
-	while (!WindowShouldClose())
-	{
-		BeginDrawing();
-		ClearBackground(RAYWHITE);
+	int result = game->Run();
 
-		DrawCircle(540, 360, 50.f, RED);
+	delete game;
 
-		EndDrawing();
-	}
-
-	CloseWindow();
-
-	return EXIT_SUCCESS;
+	return result;
 }
